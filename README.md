@@ -42,6 +42,22 @@ Fensteranordnung fragt macOS einmalig nach der Bedienungshilfen-Berechtigung. /
 Open the DMG, drag the app to Applications, launch. macOS will ask once for
 Accessibility permission (used to arrange windows).
 
+## Kommandozeile / Command line
+
+Für Skripte und Kurzbefehle lässt sich die App auch ohne Menü steuern. /
+For scripts and Shortcuts the app can also be driven without the menu.
+
+```
+/Applications/MonitorToggle.app/Contents/MacOS/MonitorToggle list
+/Applications/MonitorToggle.app/Contents/MacOS/MonitorToggle profiles
+/Applications/MonitorToggle.app/Contents/MacOS/MonitorToggle apply Büro
+/Applications/MonitorToggle.app/Contents/MacOS/MonitorToggle off 4
+```
+
+`apply` protokolliert jeden Schritt (welche App gestartet, welches Fenster
+angeordnet wurde) – praktisch zur Fehlersuche. / `apply` logs every step, handy
+for troubleshooting.
+
 ## Beta-Hinweis / Beta note
 
 Die App ist voll funktionsfähig, wird aber aktiv weiterentwickelt. Feedback und
