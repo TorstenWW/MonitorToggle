@@ -15,6 +15,12 @@
   deiner Apps und stellen beides beim Andocken automatisch her — nicht laufende
   Apps werden dabei gestartet. / Per-workplace profiles that restore monitor states
   and window layouts automatically when you dock, launching missing apps.
+- 🗂️ **Mehrere Schreibtische** (auf Wunsch): Beim Sichern oder Überschreiben lässt sich
+  „Alle Schreibtische einbeziehen“ anhaken. Das Profil merkt sich dann, auf welchem
+  Schreibtisch jedes Fenster liegt und welche Apps im Vollbild laufen, und stellt das beim
+  Anwenden wieder her. Beim Überschreiben wählbar: alle Schreibtische oder nur die gerade
+  aktiven. / Optional multi-desktop profiles: remember each window's desktop (Space) and
+  full-screen apps and restore them; overwrite all desktops or only the active ones.
 - ✏️ Monitore frei benennbar („Home links“ statt „XG349C“). / Custom monitor names.
 - 🌍 Dreisprachig: Deutsch, English, Español (folgt der Systemsprache, umschaltbar).
 - 🔄 Automatische Updates. / Automatic updates.
@@ -49,6 +55,7 @@ For scripts and Shortcuts the app can also be driven without the menu.
 
 ```
 /Applications/MonitorToggle.app/Contents/MacOS/MonitorToggle list
+/Applications/MonitorToggle.app/Contents/MacOS/MonitorToggle spaces
 /Applications/MonitorToggle.app/Contents/MacOS/MonitorToggle profiles
 /Applications/MonitorToggle.app/Contents/MacOS/MonitorToggle apply Büro
 /Applications/MonitorToggle.app/Contents/MacOS/MonitorToggle off 4
@@ -57,6 +64,27 @@ For scripts and Shortcuts the app can also be driven without the menu.
 `apply` protokolliert jeden Schritt (welche App gestartet, welches Fenster
 angeordnet wurde) – praktisch zur Fehlersuche. / `apply` logs every step, handy
 for troubleshooting.
+
+## Hinweise zu Schreibtischen / Notes on desktops
+
+- macOS bietet für Schreibtische (Spaces) keine offizielle Schnittstelle. MonitorToggle liest sie
+  über Funktionen des Fensterservers aus; fehlen diese in einer künftigen macOS-Version,
+  arbeitet die App ohne Schreibtisch-Funktionen weiter. / macOS has no public API for Spaces;
+  if the underlying functions disappear, the app keeps working without desktop features.
+- Um ein Fenster auf einen anderen Schreibtisch zu bringen, schaltet die App kurz die
+  Schreibtische um – genau wie der Kurzbefehl ctrl + Pfeiltaste. Dabei springt der Mauszeiger
+  kurz auf den betroffenen Monitor und kehrt zurück; am Ende zeigt jeder Monitor wieder den
+  Schreibtisch von vorher. / To move a window to another desktop the app briefly switches
+  desktops, exactly like ctrl + arrow; the pointer jumps to that monitor for a moment.
+- Voraussetzung dafür: Die Mission-Control-Kurzbefehle „Einen Space nach links/rechts“ sind
+  aktiv (Standard). / Requires the Mission Control shortcuts “Move left/right a space” (default).
+- Mit nur einem Monitor zieht die App das Fenster wie von Hand an der Titelleiste hinüber;
+  über einen Vollbild-Space hinweg lässt macOS das nicht zu. / With a single monitor the window
+  is dragged by its title bar; macOS does not allow dragging across a full-screen Space.
+- Schreibtische werden über ihre Reihenfolge je Monitor wiedererkannt. Die macOS-Einstellung
+  „Spaces automatisch anhand der letzten Verwendung ausrichten“ kann diese Reihenfolge ändern
+  und sollte dafür ausgeschaltet sein. / Desktops are identified by their order per monitor;
+  turn off “Automatically rearrange Spaces based on most recent use”.
 
 ## Beta-Hinweis / Beta note
 
